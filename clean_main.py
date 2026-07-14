@@ -53,13 +53,13 @@ def validate_data(df):
     """Remove impossible values."""
 
     # WHY: Negative quantities cannot exist in a completed sales record.
-    df = df[df["quantity"] >= 0]
+    df = df[df["quantity"] > 0]
 
     # WHY: Quantities greater than 100 are considered invalid
     df = df[df["quantity"] <= 100]
 
     # WHY: Products cannot have zero or negative selling prices.
-    df = df[df["unit_price"] >= 0]
+    df = df[df["unit_price"] > 0]
 
     return df
 
